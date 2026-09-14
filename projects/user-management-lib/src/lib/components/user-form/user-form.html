@@ -1,1 +1,121 @@
-<p>user-form works!</p>,
+<div class="form-container">
+  <fieldset class="custom-fieldset">
+    <legend class="custom-legend">
+      {{ "FORM.PERSONAL_DATA" | translate }}
+    </legend>
+
+    <form class="form-grid" [formGroup]="userForm" (ngSubmit)="onSave()">
+      <mat-form-field appearance="outline" class="form-field full-width">
+        <mat-label>{{ "USER.USERNAME" | translate }}</mat-label>
+        <input matInput formControlName="username" />
+        @if (formUtils.isValidField(userForm, "username")) {
+        <mat-error
+          >{{ formUtils.getFieldError(userForm, "username")! | translate
+          }}</mat-error
+        >
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>{{ "USER.FIRST_NAME" | translate }}</mat-label>
+        <input matInput formControlName="firstname" />
+        @if (formUtils.isValidField(userForm, "firstname")) {
+        <mat-error
+          >{{ formUtils.getFieldError(userForm, "firstname")! | translate
+          }}</mat-error
+        >
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>{{ "USER.SUR_NAME" | translate }}</mat-label>
+        <input matInput formControlName="surname" />
+        @if (formUtils.isValidField(userForm, "surname")) {
+        <mat-error
+          >{{ formUtils.getFieldError(userForm, "surname")! | translate
+          }}</mat-error
+        >
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>{{ "USER.EMAIL" | translate }}</mat-label>
+        <input matInput type="email" formControlName="email" />
+        @if (formUtils.isValidField(userForm, "email")) {
+        <mat-error
+          >{{ formUtils.getFieldError(userForm, "email")! | translate
+          }}</mat-error
+        >
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>{{ "USER.DATE_OF_BIRTH" | translate }}</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          formControlName="dateOfBirth"
+        />
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        @if (formUtils.isValidField(userForm, "dateOfBirth")) {
+        <mat-error
+          >{{ formUtils.getFieldError(userForm, "dateOfBirth")! | translate
+          }}</mat-error
+        >
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>{{ "USER.PASSWORD" | translate }}</mat-label>
+        <input matInput formControlName="password" />
+        @if (formUtils.isValidField(userForm, "password")) {
+        <mat-error
+          >{{ formUtils.getFieldError(userForm, "password")! | translate
+          }}</mat-error
+        >
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>{{ "USER.CONFIRM_PASSWORD" | translate }}</mat-label>
+        <input matInput formControlName="confirmPassword" />
+        @if (formUtils.isValidField(userForm, "confirmPassword")) {
+        <mat-error
+          >{{ formUtils.getFieldError(userForm, "confirmPassword")! | translate
+          }}</mat-error
+        >
+        }
+      </mat-form-field>
+
+      <span class="example-list-section">
+        <mat-checkbox class="example-margin" formControlName="active">
+          {{ "USER.ACTIVE" | translate }}
+        </mat-checkbox>
+      </span>
+
+      <button mat-flat-button color="primary" type="submit">
+        {{ "FORM.SAVE" | translate }}
+      </button>
+    </form>
+  </fieldset>
+</div>
+
+<div class="row">
+  <div class="col">
+    <span>Valid</span>
+    <pre>{{ userForm.valid | json }}</pre>
+
+    <span>Pristine</span>
+    <pre>{{ userForm.pristine | json }}</pre>
+
+    <span>Touched</span>
+    <pre>{{ userForm.touched | json }}</pre>
+
+    <span>Value</span>
+    <pre>{{ userForm.value | json }}</pre>
+  </div>
+</div>
