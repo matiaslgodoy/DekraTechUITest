@@ -1,0 +1,10 @@
+{
+  "NAVBAR": {
+    "TITLE": "Gestión de Usuarios",
+    "USERS_LIST": "Usuarios",
+    "NEW_USER": "Nuevo Usuario"
+  },
+  "COMMON": {
+    "LANGUAGE": "Idioma"
+  }
+}

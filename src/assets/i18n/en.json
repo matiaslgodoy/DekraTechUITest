@@ -1,0 +1,10 @@
+{
+  "NAVBAR": {
+    "TITLE": "User magnament",
+    "USERS_LIST": "User list",
+    "NEW_USER": "New user"
+  },
+  "COMMON": {
+    "LANGUAGE": "Idioma"
+  }
+}
