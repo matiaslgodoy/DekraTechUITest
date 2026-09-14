@@ -69,7 +69,7 @@ export class UserForm {
     ],
     password: [this.user()?.password, [Validators.required]],
     confirmPassword: [this.user()?.password, [Validators.required]],
-    active: [this.user()?.active],
+    active: [this.user()?.active ?? false],
   });
 
   onSave() {
@@ -86,10 +86,8 @@ export class UserForm {
         ...formValues,
         id: currentUser.id,
       };
-      console.log(currentUser);
     } else {
       currentUser = formValues;
-      console.log('Crear nuevo usuario:', currentUser);
     }
 
     this._userService.addUser(currentUser!);

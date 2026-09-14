@@ -1,5 +1,6 @@
 import { effect, Injectable, signal } from '@angular/core';
 import { UserModel } from '../models/user.model';
+import { UserUtils } from '../utils/user-utils';
 
 const USER_KEY = 'users';
 
@@ -19,6 +20,8 @@ export class UserApiService {
   });
 
   addUser(user: UserModel) {
+    //Esto deberia hacerlo el backend
+    user = UserUtils.normalizeUserFromBackend(this.userList(), user);
     this.userList.update((list) => [...list, user]);
   }
 }
