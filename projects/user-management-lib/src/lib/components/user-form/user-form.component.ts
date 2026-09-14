@@ -1,5 +1,5 @@
 import { JsonPipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -17,6 +17,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltip } from '@angular/material/tooltip';
 import { TranslateModule } from '@ngx-translate/core';
+import { UserModel } from '../../models/user.model';
+import { UserApiService } from '../../services/user-api.service';
 import { FormUtils } from '../../utils/form-utils';
 
 @Component({
@@ -41,21 +43,36 @@ import { FormUtils } from '../../utils/form-utils';
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserForm {
-  private fb = inject(FormBuilder);
+  user = input<UserModel>();
+  private _fb = inject(FormBuilder);
+  private _userService = inject(UserApiService);
   formUtils = FormUtils;
+  characters: UserModel[] = this._userService.userList() || [];
 
-  userForm: FormGroup = this.fb.group({
-    username: ['', [Validators.required, this.formUtils.noWhiteSpace]],
-    firstname: ['', [Validators.required, this.formUtils.noWhiteSpace]],
-    surname: ['', [Validators.required, this.formUtils.noWhiteSpace]],
+  userForm: FormGroup = this._fb.group({
+    username: [
+      this.user()?.username,
+      [Validators.required, this.formUtils.noWhiteSpace],
+    ],
+    firstname: [
+      this.user()?.firstname,
+      [Validators.required, this.formUtils.noWhiteSpace],
+    ],
+    surname: [
+      this.user()?.surname,
+      [Validators.required, this.formUtils.noWhiteSpace],
+    ],
     email: [
-      '',
+      this.user()?.email,
       [Validators.required, Validators.pattern(FormUtils.emailPattern)],
     ],
-    dateOfBirth: ['', [Validators.required, this.formUtils.maxDateToday]],
-    password: ['', [Validators.required]],
-    confirmPassword: ['', [Validators.required]],
-    active: [false],
+    dateOfBirth: [
+      this.user()?.dateOfBirth,
+      [Validators.required, this.formUtils.maxDateToday],
+    ],
+    password: [this.user()?.password, [Validators.required]],
+    confirmPassword: [this.user()?.password, [Validators.required]],
+    active: [this.user()?.active],
   });
 
   onSave() {
@@ -63,10 +80,23 @@ export class UserForm {
       this.userForm.markAllAsTouched();
       return;
     }
+    const formValues = this.userForm.value;
+    let currentUser = this.user();
 
-    const newUser = this.userForm.value;
-    console.log(newUser);
+    if (currentUser?.id) {
+      currentUser = {
+        ...currentUser,
+        ...formValues,
+        id: currentUser.id,
+      };
+      console.log(currentUser);
+    } else {
+      currentUser = formValues;
+      console.log('Crear nuevo usuario:', currentUser);
+    }
 
-    this.userForm.reset();
+    this._userService.addUser(currentUser!);
+
+    //this.userForm.reset();
   }
 }

@@ -1,4 +1,5 @@
-export interface userModel {
+export interface UserModel {
+  id: string;
   username: string;
   firstname: string;
   surname: string;
@@ -7,4 +8,5 @@ export interface userModel {
   dateOfBirth: string;
   dateCreated: string;
   dateLastLoggin: string;
+  active: boolean;
 }
