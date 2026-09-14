@@ -22,7 +22,7 @@ export const USER_MANAGEMENT_ROUTES: Routes = [
       },
       {
         path: '**',
-        redirectTo: 'create',
+        redirectTo: 'list',
       },
     ],
   },
