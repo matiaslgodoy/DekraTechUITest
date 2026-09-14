@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-user-edit',
+  selector: 'app-user-list',
   standalone: true,
   imports: [],
-  templateUrl: './user-edit.html',
+  templateUrl: './user-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UserEdit {}
+export class UserList {}

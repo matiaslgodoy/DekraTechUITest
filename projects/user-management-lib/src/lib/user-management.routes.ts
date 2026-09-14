@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { UserCreate } from './pages/user-create/user-create';
-import { UserEdit } from './pages/user-edit/user-edit';
-import { UserList } from './pages/user-list/user-list';
+import { UserCreate } from './pages/user-create/user-create.component';
+import { UserEdit } from './pages/user-edit/user-edit.component';
+import { UserList } from './pages/user-list/user-list.component';
 
 export const USER_MANAGEMENT_ROUTES: Routes = [
   {

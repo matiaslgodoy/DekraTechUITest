@@ -36,8 +36,8 @@ import { FormUtils } from '../../utils/form-utils';
     JsonPipe,
   ],
   providers: [provideNativeDateAdapter()],
-  templateUrl: './user-form.html',
-  styleUrls: ['./user-form.scss'],
+  templateUrl: './user-form.component.html',
+  styleUrls: ['./user-form.component.scss'],
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserForm {
