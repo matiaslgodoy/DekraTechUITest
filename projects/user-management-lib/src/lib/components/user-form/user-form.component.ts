@@ -18,7 +18,7 @@ import { MatTooltip } from '@angular/material/tooltip';
 import { TranslateModule } from '@ngx-translate/core';
 import { UserModel } from '../../models/user.model';
 import { UserApiService } from '../../services/user-api.service';
-import { FormUtils } from '../../utils/form-utils';
+import { FormUtils } from '../../shared/utils/form-utils';
 
 @Component({
   selector: 'app-user-form',

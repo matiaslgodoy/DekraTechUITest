@@ -1,6 +1,6 @@
 import { effect, Injectable, signal } from '@angular/core';
 import { UserModel } from '../models/user.model';
-import { UserUtils } from '../utils/user-utils';
+import { UserUtils } from '../shared/utils/user-utils';
 
 const USER_KEY = 'users';
 
