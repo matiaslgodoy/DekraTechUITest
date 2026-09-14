@@ -1,4 +1,3 @@
-import { JsonPipe } from '@angular/common';
 import { Component, inject, input } from '@angular/core';
 import {
   FormBuilder,
@@ -35,7 +34,6 @@ import { FormUtils } from '../../utils/form-utils';
     MatTooltip,
     ReactiveFormsModule,
     TranslateModule,
-    JsonPipe,
   ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './user-form.component.html',
@@ -47,7 +45,6 @@ export class UserForm {
   private _fb = inject(FormBuilder);
   private _userService = inject(UserApiService);
   formUtils = FormUtils;
-  characters: UserModel[] = this._userService.userList() || [];
 
   userForm: FormGroup = this._fb.group({
     username: [
