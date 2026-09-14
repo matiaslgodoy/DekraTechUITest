@@ -1,0 +1,51 @@
+.navbar {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  padding: 0 24px;
+}
+
+.nav-title {
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+/* El espaciador toma todo el espacio sobrante */
+.spacer {
+  flex: 1 1 auto;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-links mat-icon {
+  margin-right: 6px;
+}
+
+/* Estado activo para la ruta seleccionada */
+.active-link {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Responsivo para móviles */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 0 12px;
+  }
+
+  .nav-title {
+    font-size: 1rem;
+  }
+
+  .nav-links a {
+    padding: 0 8px;
+    font-size: 0.85rem;
+  }
+}

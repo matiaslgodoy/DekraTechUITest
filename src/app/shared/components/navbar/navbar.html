@@ -1,0 +1,49 @@
+<mat-toolbar color="primary" class="navbar">
+  <!-- Título o Logotipo de la app (opcional) -->
+  <span class="nav-title">{{ 'NAVBAR.TITLE' | translate }}</span>
+
+  <!-- Espaciador flexible para empujar el menú hacia la derecha -->
+  <span class="spacer"></span>
+
+  <!-- Menú de navegación principal -->
+  <nav class="nav-links">
+    <a mat-button routerLink="/users" routerLinkActive="active-link">
+      <mat-icon>group</mat-icon>
+      Lista de usuarios
+    </a>
+
+    <a
+      mat-raised-button
+      color="accent"
+      routerLink="/users/create"
+      routerLinkActive="active-link"
+    >
+      <mat-icon>person_add</mat-icon>
+      Nuevo usuario
+    </a>
+  </nav>
+
+  <!-- Selector de Idioma (Dropdown) -->
+  <button mat-button [matMenuTriggerFor]="languageMenu">
+    <mat-icon>language</mat-icon>
+    <span>{{ currentLang() }}</span>
+    <mat-icon>arrow_drop_down</mat-icon>
+  </button>
+
+  <mat-menu #languageMenu="matMenu">
+    <button
+      mat-menu-item
+      (click)="changeLanguage('es')"
+      [disabled]="currentLang() === 'es'"
+    >
+      <span [class.fw-bold]="currentLang() === 'es'">Español (ES)</span>
+    </button>
+    <button
+      mat-menu-item
+      (click)="changeLanguage('en')"
+      [disabled]="currentLang() === 'en'"
+    >
+      <span [class.fw-bold]="currentLang() === 'en'">English (EN)</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
