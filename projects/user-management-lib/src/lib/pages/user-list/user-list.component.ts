@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
-import { UserTableComponent } from '../../components/user-table.component/user-table.component';
+import { TranslateService } from '@ngx-translate/core';
+import { UserTableComponent } from '../../components/user-table/user-table.component';
+import { ToastNotificationService } from '../../services/toast-notification.service';
 import { UserApiService } from '../../services/user-api.service';
 
 @Component({
@@ -13,9 +15,18 @@ import { UserApiService } from '../../services/user-api.service';
 })
 export class UserList {
   private _userService = inject(UserApiService);
+  private _toastNotificationService = inject(ToastNotificationService);
+  private _translateSerice = inject(TranslateService);
   userList = this._userService.userList || [];
 
   deleteUserById(userId: number): void {
+    this._toastNotificationService.openSnackBar(
+      this._translateSerice.instant('TOAST_NOTIFICATION.USER_DELETED'),
+    );
     this._userService.deleteUserById(userId);
+  }
+
+  openSnackBar() {
+    this._toastNotificationService.openSnackBar('mensajedel toas');
   }
 }

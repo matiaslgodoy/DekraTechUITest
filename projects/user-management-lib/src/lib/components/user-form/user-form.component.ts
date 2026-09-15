@@ -7,7 +7,6 @@ import {
 } from '@angular/forms';
 
 // Angular Material Modules
-import { JsonPipe } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { provideNativeDateAdapter } from '@angular/material/core';
@@ -35,7 +34,6 @@ import { FormUtils } from '../../shared/utils/form-utils';
     MatTooltip,
     ReactiveFormsModule,
     TranslateModule,
-    JsonPipe,
   ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './user-form.component.html',

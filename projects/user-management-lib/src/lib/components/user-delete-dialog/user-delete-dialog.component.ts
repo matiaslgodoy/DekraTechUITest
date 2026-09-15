@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { MatButton } from '@angular/material/button';
 import {
   MatDialogActions,
   MatDialogContent,
@@ -15,8 +16,10 @@ import { TranslateModule } from '@ngx-translate/core';
     MatDialogContent,
     MatDialogActions,
     TranslateModule,
+    MatButton,
   ],
   templateUrl: './user-delete-dialog.component.html',
+  styleUrls: ['./user-delete-dialog.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserDeleteDialogComponent {

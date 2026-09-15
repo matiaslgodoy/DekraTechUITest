@@ -15,7 +15,7 @@
     "AGE": "Edad",
     "EMAIL": "Correo",
     "DATE_OF_CREATE": "Fecha de Creacion",
-    "DATE_LAST_LOGIN": "Fecha ultimo Login",
+    "DATE_LAST_LOGIN": "Ultimo Login",
     "ACTIVE": "Activo"
   },
   "FORM": {
@@ -35,5 +35,10 @@
     "WHITE_SPACE": "El campo no puede ser vacio",
     "NAME_PARRERN": "Nombre invalido",
     "EMAIL_PARRERN": "Correo invalido"
+  },
+  "TOAST_NOTIFICATION": {
+    "USER_CREATED": "Usuario creado",
+    "USER_EDITED": "Usuario editado",
+    "USER_DELETED": "Usuario eliminado"
   }
 }
