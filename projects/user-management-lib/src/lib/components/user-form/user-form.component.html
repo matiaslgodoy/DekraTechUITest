@@ -66,7 +66,7 @@
 
       <mat-form-field appearance="outline" class="form-field">
         <mat-label>{{ "USER.PASSWORD" | translate }}</mat-label>
-        <input matInput formControlName="password" />
+        <input matInput formControlName="password" type="password" />
         @if (formUtils.isValidField(userForm, "password")) {
           <mat-error>{{
             formUtils.getFieldError(userForm, "password")! | translate
@@ -76,7 +76,7 @@
 
       <mat-form-field appearance="outline" class="form-field">
         <mat-label>{{ "USER.CONFIRM_PASSWORD" | translate }}</mat-label>
-        <input matInput formControlName="confirmPassword" />
+        <input matInput formControlName="confirmPassword" type="password" />
         @if (formUtils.isValidField(userForm, "confirmPassword")) {
           <mat-error>{{
             formUtils.getFieldError(userForm, "confirmPassword")! | translate

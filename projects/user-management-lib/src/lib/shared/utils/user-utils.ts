@@ -26,8 +26,11 @@ export class UserUtils {
     //Esto deberia hacerlo el backend
     const createdDay = new Date();
     createdDay.setHours(0, 0, 0, 0);
-    user.id =
-      userList.length > 0 ? Math.max(...userList.map((u) => u.id)) + 1 : 1;
+    user.id = user.id
+      ? user.id
+      : userList.length > 0
+        ? Math.max(...userList.map((u) => u.id)) + 1
+        : 1;
     user.dateCreated = this.normalizeDate(createdDay.toString());
     user.dateLastLoggin = this.normalizeDate(
       UserUtils.getRandomDateBetween(createdDay, new Date()),

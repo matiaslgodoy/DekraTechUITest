@@ -34,7 +34,8 @@
     "MAX_DATE_TODAY": "La fecha ingresada no es válida",
     "WHITE_SPACE": "El campo no puede ser vacio",
     "NAME_PARRERN": "Nombre invalido",
-    "EMAIL_PARRERN": "Correo invalido"
+    "EMAIL_PARRERN": "Correo invalido",
+    "NOT_EQUAL": "Los campos no son iguales"
   },
   "TOAST_NOTIFICATION": {
     "USER_CREATED": "Usuario creado",

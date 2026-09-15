@@ -1,10 +1,16 @@
-import { LiveAnnouncer } from '@angular/cdk/a11y';
-import { CdkAutofill } from '@angular/cdk/text-field';
 import { DatePipe } from '@angular/common';
-import { Component, effect, input, output, ViewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  effect,
+  input,
+  OnInit,
+  output,
+  ViewChild,
+} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { MatSort, MatSortModule, Sort } from '@angular/material/sort';
+import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
@@ -22,16 +28,16 @@ import { UserDeleteDialogComponent } from '../user-delete-dialog/user-delete-dia
     AgePipePipe,
     MatIconModule,
     TranslateModule,
-    CdkAutofill,
     RouterLink,
   ],
   templateUrl: './user-table.component.html',
   styleUrls: ['./user-table.component.scss'],
-  //changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UserTableComponent {
+export class UserTableComponent implements OnInit {
   userList = input<UserModel[]>();
   deleteUserById = output<number>();
+  @ViewChild(MatSort) sort!: MatSort;
 
   displayedColumns: string[] = [
     'username',
@@ -44,43 +50,46 @@ export class UserTableComponent {
   ];
   dataSource = new MatTableDataSource<UserModel>();
 
-  constructor(
-    private _liveAnnouncer: LiveAnnouncer,
-    public dialog: MatDialog,
-  ) {
+  constructor(public dialog: MatDialog) {
     effect(() => {
       this.dataSource.data = this.userList() || [];
     });
   }
 
-  @ViewChild(MatSort) sort!: MatSort;
+  ngOnInit(): void {
+    // Definimos el extractor de datos personalizado para el ordenamiento
+    this.dataSource.sortingDataAccessor = (
+      item: UserModel,
+      property: string,
+    ) => {
+      switch (property) {
+        case 'name':
+          // Concatenamos nombre y apellido para ordenar por el texto completo
+          return `${item.firstname} ${item.surname}`.toLowerCase();
+        default:
+          // Para las demás columnas, lee la propiedad directo
+          return (item as any)[property];
+      }
+    };
+  }
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
-    //this.dataSource = new MatTableDataSource(this.userList());
-  }
-
-  announceSortChange(sortState: Sort) {
-    if (sortState.direction) {
-      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-    } else {
-      this._liveAnnouncer.announce('Sorting cleared');
-    }
   }
 
   openDialog(userId: number): void {
-    //this.dialog.open(UserDeleteDialogComponent);
     const dialogRef = this.dialog.open(UserDeleteDialogComponent, {
       width: '400px',
     });
 
-    // Escucha cuando el modal se cierra
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if (result) {
-        // El usuario presionó "Eliminar"
-        // this.deleteUser(userId);
         this.deleteUserById.emit(userId);
       }
     });
+  }
+
+  getFullName(user: UserModel): string {
+    return `${user.firstname} ${user.surname}`;
   }
 }

@@ -22,7 +22,12 @@ export class UserApiService {
   addUser(user: UserModel) {
     //Esto deberia hacerlo el backend
     user = UserUtils.normalizeUserFromBackend(this.userList(), user);
-    this.userList.update((list) => [...list, user]);
+    this.userList.update((list) => {
+      const exists = list.some((u) => u.id === user.id);
+      return exists
+        ? list.map((u) => (u.id === user.id ? user : u))
+        : [...list, user];
+    });
   }
 
   getUserById(userId: string): UserModel | null {

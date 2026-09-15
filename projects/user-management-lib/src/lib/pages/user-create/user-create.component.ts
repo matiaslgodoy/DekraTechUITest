@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { UserApiService } from 'user-management-lib';
 import { UserFormComponent } from '../../components/user-form/user-form.component';
 import { UserModel } from '../../models/user.model';
 import { ToastNotificationService } from '../../services/toast-notification.service';
@@ -14,12 +15,14 @@ import { ToastNotificationService } from '../../services/toast-notification.serv
 })
 export class UserCreateComponent {
   private _router = inject(Router);
+  private _userService = inject(UserApiService);
   private _toastNotificationService = inject(ToastNotificationService);
   private _translateSerice = inject(TranslateService);
 
   userSaved(userSaved: UserModel): void {
+    this._userService.addUser(userSaved!);
     this._toastNotificationService.openSnackBar(
-      this._translateSerice.instant('TOAST_NOTIFICATION.USER_EDITED'),
+      this._translateSerice.instant('TOAST_NOTIFICATION.USER_CREATED'),
     );
     this._router.navigate(['users/list']);
   }

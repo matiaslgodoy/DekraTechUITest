@@ -33,7 +33,7 @@ export class UserEditComponent {
   userToEdit = computed(() => this._userService.getUserById(this.userId()));
 
   userSaved(userSaved: UserModel): void {
-    //console.log('USUARIO', this.userSaved);
+    this._userService.addUser(userSaved!);
     this._toastNotificationService.openSnackBar(
       this._translateSerice.instant('TOAST_NOTIFICATION.USER_EDITED'),
     );

@@ -26,10 +26,10 @@ export class UserDeleteDialogComponent {
   private dialogRef = inject(MatDialogRef<UserDeleteDialogComponent>);
 
   onConfirm(): void {
-    this.dialogRef.close(true); // Retorna true al padre
+    this.dialogRef.close(true);
   }
 
   onCancel(): void {
-    this.dialogRef.close(false); // Retorna false al padre
+    this.dialogRef.close(false);
   }
 }

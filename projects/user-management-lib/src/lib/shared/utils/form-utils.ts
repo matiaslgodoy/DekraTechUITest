@@ -12,13 +12,16 @@ export class FormUtils {
           return 'ERROR.REQUIRED';
 
         case 'minlength':
-          return 'ERROR.MIN_LENGTH';
+          return 'ERROR.MIN_LENGTH_6';
 
         case 'whiteSpace':
           return 'ERROR.WHITE_SPACE';
 
         case 'maxDateToday':
           return 'ERROR.MAX_DATE_TODAY';
+
+        case 'notEqual':
+          return 'ERROR.NOT_EQUAL';
 
         case 'pattern':
           if (errors['pattern'].requiredPattern === FormUtils.emailPattern) {
@@ -61,20 +64,40 @@ export class FormUtils {
 
   static maxDateToday(control: AbstractControl): ValidationErrors | null {
     if (!control.value) {
-      return null; // Si no hay valor, la validación pasa (usa Validators.required si es obligatorio)
+      return null;
     }
 
     const selectedDate = new Date(control.value);
     const today = new Date();
 
-    // Normalizar ambas fechas a medianoche (00:00:00) para comparar solo año, mes y día
     selectedDate.setHours(0, 0, 0, 0);
     today.setHours(0, 0, 0, 0);
 
     if (selectedDate >= today) {
-      return { maxDateToday: true }; // Nombre del error devuelto
+      return { maxDateToday: true };
     }
 
     return null;
+  }
+
+  static isFieldOneEqualsFieldTwo(
+    field1: string,
+    field2: string,
+  ): ValidationErrors | null {
+    return (formGroup: AbstractControl): ValidationErrors | null => {
+      const field1Control = formGroup.get(field1);
+      const field2Control = formGroup.get(field2);
+
+      if (!field1Control || !field2Control) {
+        return null;
+      }
+
+      if (field1Control.value !== field2Control.value) {
+        field2Control.setErrors({ ...field2Control.errors, notEqual: true });
+        return { notEqual: true };
+      }
+
+      return null;
+    };
   }
 }
