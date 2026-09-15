@@ -1,14 +1,18 @@
 <mat-toolbar color="primary" class="navbar">
-  <!-- Título o Logotipo de la app (opcional) -->
+  <button
+    mat-icon-button
+    class="mobile-menu-btn mobile-menu"
+    [matMenuTriggerFor]="mobileNavMenu"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
   <span class="nav-title" routerLink="/home">
     {{ 'NAVBAR.TITLE' | translate }}</span
   >
-
-  <!-- Espaciador flexible para empujar el menú hacia la derecha -->
   <span class="spacer"></span>
 
   <!-- Menú de navegación principal -->
-  <nav class="nav-links">
+  <nav class="nav-links desktop-menu">
     <a mat-button routerLink="/users">
       <mat-icon>group</mat-icon>
       {{ 'BUTTON.USERS_LIST' | translate }}
@@ -19,6 +23,18 @@
       {{ 'BUTTON.NEW_USER' | translate }}
     </a>
   </nav>
+
+  <!-- Menú desplegable Móvil -->
+  <mat-menu #mobileNavMenu="matMenu" class="mobile-menu">
+    <a mat-menu-item routerLink="/users">
+      <mat-icon>group</mat-icon>
+      <span>{{ "BUTTON.USERS_LIST" | translate }}</span>
+    </a>
+    <a mat-menu-item routerLink="/users/create">
+      <mat-icon>person_add</mat-icon>
+      <span>{{ "BUTTON.NEW_USER" | translate }}</span>
+    </a>
+  </mat-menu>
 
   <!-- Selector de Idioma (Dropdown) -->
   <button mat-button [matMenuTriggerFor]="languageMenu">

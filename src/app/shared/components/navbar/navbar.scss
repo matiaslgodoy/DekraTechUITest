@@ -1,5 +1,5 @@
 .navbar {
-  width: 100%;
+  //width: 100%;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -27,8 +27,23 @@
 }
 
 
-/* Responsivo para móviles */
-@media (max-width: 600px) {
+.desktop-menu{
+  display: block;
+}
+.mobile-menu{
+  display: none;
+}
+
+/* Reglas Responsive */
+@media (max-width: 770px) {
+  .mobile-menu{
+    display: block;
+  }
+
+  .desktop-menu{
+    display: none;
+  }
+
   .navbar {
     padding: 0 12px;
   }
