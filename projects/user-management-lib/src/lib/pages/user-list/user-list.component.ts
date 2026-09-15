@@ -13,7 +13,7 @@ import { UserApiService } from '../../services/user-api.service';
   styleUrls: ['./user-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UserList {
+export class UserListComponent {
   private _userService = inject(UserApiService);
   private _toastNotificationService = inject(ToastNotificationService);
   private _translateSerice = inject(TranslateService);

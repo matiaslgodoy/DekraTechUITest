@@ -1,25 +1,22 @@
 <mat-toolbar color="primary" class="navbar">
   <!-- Título o Logotipo de la app (opcional) -->
-  <span class="nav-title">{{ 'NAVBAR.TITLE' | translate }}</span>
+  <span class="nav-title" routerLink="/home">
+    {{ 'NAVBAR.TITLE' | translate }}</span
+  >
 
   <!-- Espaciador flexible para empujar el menú hacia la derecha -->
   <span class="spacer"></span>
 
   <!-- Menú de navegación principal -->
   <nav class="nav-links">
-    <a mat-button routerLink="/users" routerLinkActive="active-link">
+    <a mat-button routerLink="/users">
       <mat-icon>group</mat-icon>
-      Lista de usuarios
+      {{ 'BUTTON.USERS_LIST' | translate }}
     </a>
 
-    <a
-      mat-raised-button
-      color="accent"
-      routerLink="/users/create"
-      routerLinkActive="active-link"
-    >
+    <a mat-raised-button color="accent" routerLink="/users/create">
       <mat-icon>person_add</mat-icon>
-      Nuevo usuario
+      {{ 'BUTTON.NEW_USER' | translate }}
     </a>
   </nav>
 

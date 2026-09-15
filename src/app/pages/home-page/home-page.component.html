@@ -1,0 +1,47 @@
+<div class="dashboard-container">
+  <header class="dashboard-header">
+    <h1>
+      <strong>
+        {{ "HOME.WELCOME" | translate }}
+      </strong>
+    </h1>
+  </header>
+
+  <ul>
+    <li>
+      <p>
+        {{ "HOME.USERS_TABLE_LBL" | translate }}
+        <button
+          mat-flat-button
+          mat-dialog-close
+          cdkFocusInitial
+          color="primary"
+          routerLink="/users"
+        >
+          <mat-icon>group</mat-icon>
+          {{ "BUTTON.USERS_LIST" | translate }}
+        </button>
+      </p>
+    </li>
+    <li>
+      <p>
+        {{ "HOME.FOLLOW_BUTTON_CREATE" | translate }}
+        <button
+          mat-flat-button
+          mat-dialog-close
+          cdkFocusInitial
+          color="accent"
+          routerLink="/users/create"
+        >
+          <mat-icon>person_add</mat-icon>
+          {{ "BUTTON.NEW_USER" | translate }}
+        </button>
+      </p>
+    </li>
+  </ul>
+
+  <br />
+  <p style="font-style: italic">
+    {{ "HOME.USERS_COUNT" | translate }} {{ userCount }}
+  </p>
+</div>

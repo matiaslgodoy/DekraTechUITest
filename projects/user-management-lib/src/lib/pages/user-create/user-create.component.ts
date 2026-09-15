@@ -1,18 +1,18 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { UserForm } from '../../components/user-form/user-form.component';
+import { UserFormComponent } from '../../components/user-form/user-form.component';
 import { UserModel } from '../../models/user.model';
 import { ToastNotificationService } from '../../services/toast-notification.service';
 
 @Component({
   selector: 'app-user-create',
   standalone: true,
-  imports: [UserForm],
+  imports: [UserFormComponent],
   templateUrl: './user-create.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UserCreate {
+export class UserCreateComponent {
   private _router = inject(Router);
   private _toastNotificationService = inject(ToastNotificationService);
   private _translateSerice = inject(TranslateService);

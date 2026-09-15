@@ -12,6 +12,7 @@
   font-weight: 600;
   font-size: 1.2rem;
   letter-spacing: 0.5px;
+  cursor: pointer;
 }
 
 /* El espaciador toma todo el espacio sobrante */
@@ -25,14 +26,6 @@
   gap: 12px;
 }
 
-.nav-links mat-icon {
-  margin-right: 6px;
-}
-
-/* Estado activo para la ruta seleccionada */
-.active-link {
-  background-color: rgba(255, 255, 255, 0.15);
-}
 
 /* Responsivo para móviles */
 @media (max-width: 600px) {

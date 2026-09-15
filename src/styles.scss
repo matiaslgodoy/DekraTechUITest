@@ -30,3 +30,13 @@ button {
   margin-right: 8px;
   border-radius: 25px;
 }
+
+
+.nav-links mat-icon {
+  margin-right: 6px;
+}
+
+/* Estado activo para la ruta seleccionada */
+.active-link {
+  background-color: rgba(255, 255, 255, 0.15);
+}

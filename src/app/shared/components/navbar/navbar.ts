@@ -4,7 +4,7 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 import { MatButtonModule } from '@angular/material/button';
@@ -17,7 +17,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   standalone: true,
   imports: [
     RouterLink,
-    RouterLinkActive,
     TranslateModule,
     MatToolbarModule,
     MatButtonModule,

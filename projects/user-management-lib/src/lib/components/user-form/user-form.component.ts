@@ -40,7 +40,7 @@ import { FormUtils } from '../../shared/utils/form-utils';
   styleUrls: ['./user-form.component.scss'],
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UserForm {
+export class UserFormComponent {
   user = input<UserModel>();
   userSaved = output<UserModel>();
   private _fb = inject(FormBuilder);
