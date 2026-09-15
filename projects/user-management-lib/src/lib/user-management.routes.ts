@@ -17,7 +17,7 @@ export const USER_MANAGEMENT_ROUTES: Routes = [
         component: UserCreate,
       },
       {
-        path: ':id/edit',
+        path: 'edit/:userId',
         component: UserEdit,
       },
       {

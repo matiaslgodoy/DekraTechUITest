@@ -1,4 +1,4 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, effect, inject, input } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 
 // Angular Material Modules
+import { JsonPipe } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { provideNativeDateAdapter } from '@angular/material/core';
@@ -34,6 +35,7 @@ import { FormUtils } from '../../shared/utils/form-utils';
     MatTooltip,
     ReactiveFormsModule,
     TranslateModule,
+    JsonPipe,
   ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './user-form.component.html',
@@ -47,30 +49,36 @@ export class UserForm {
   formUtils = FormUtils;
 
   userForm: FormGroup = this._fb.group({
-    username: [
-      this.user()?.username,
-      [Validators.required, this.formUtils.noWhiteSpace],
-    ],
+    username: ['', [Validators.required, this.formUtils.noWhiteSpace]],
     firstname: [
       this.user()?.firstname,
       [Validators.required, this.formUtils.noWhiteSpace],
     ],
-    surname: [
-      this.user()?.surname,
-      [Validators.required, this.formUtils.noWhiteSpace],
-    ],
+    surname: ['', [Validators.required, this.formUtils.noWhiteSpace]],
     email: [
-      this.user()?.email,
+      '',
       [Validators.required, Validators.pattern(FormUtils.emailPattern)],
     ],
-    dateOfBirth: [
-      this.user()?.dateOfBirth,
-      [Validators.required, this.formUtils.maxDateToday],
-    ],
-    password: [this.user()?.password, [Validators.required]],
-    confirmPassword: [this.user()?.password, [Validators.required]],
-    active: [this.user()?.active ?? false],
+    dateOfBirth: ['', [Validators.required, this.formUtils.maxDateToday]],
+    password: ['', [Validators.required]],
+    confirmPassword: ['', [Validators.required]],
+    active: [false],
   });
+
+  constructor() {
+    // 2. El effect se ejecuta cada vez que el Signal 'user' emita un nuevo valor
+    effect(() => {
+      const userData = this.user();
+      if (userData) {
+        this.userForm.patchValue({
+          ...userData,
+          dateOfBirth: userData.dateOfBirth
+            ? new Date(userData.dateOfBirth)
+            : null,
+        });
+      }
+    });
+  }
 
   onSave() {
     if (this.userForm.invalid) {

@@ -24,4 +24,10 @@ export class UserApiService {
     user = UserUtils.normalizeUserFromBackend(this.userList(), user);
     this.userList.update((list) => [...list, user]);
   }
+
+  getUserById(userId: string): UserModel | null {
+    const x = this.userList().find((u) => u.id === Number(userId)) || null;
+    console.log(x);
+    return x;
+  }
 }

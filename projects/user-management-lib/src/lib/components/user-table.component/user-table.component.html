@@ -14,7 +14,7 @@
         mat-sort-header
         sortActionDescription="Sort by Username"
       >
-        Username
+        {{ "USER_TABLE.USERNAME" | translate }}
       </th>
       <td mat-cell *matCellDef="let element">{{ element.username }}</td>
     </ng-container>
@@ -27,7 +27,7 @@
         mat-sort-header
         sortActionDescription="Sort by Name"
       >
-        Name
+        {{ "USER_TABLE.FULL_NAME" | translate }}
       </th>
       <td mat-cell *matCellDef="let element">
         {{ element.username + element.username }}
@@ -42,7 +42,7 @@
         mat-sort-header
         sortActionDescription="Sort by Age"
       >
-        Age
+        {{ "USER_TABLE.AGE" | translate }}
       </th>
       <td mat-cell *matCellDef="let element">
         {{ element.dateOfBirth | age }}
@@ -57,7 +57,7 @@
         mat-sort-header
         sortActionDescription="Sort by dateCreated"
       >
-        DateCreated
+        {{ "USER_TABLE.DATE_OF_CREATE" | translate }}
       </th>
       <td mat-cell *matCellDef="let element">
         {{ element.dateCreated | date: "dd/MM/yyyy" }}
@@ -72,7 +72,7 @@
         mat-sort-header
         sortActionDescription="Sort by dateLastLoggin"
       >
-        dateLastLoggin
+        {{ "USER_TABLE.DATE_LAST_LOGIN" | translate }}
       </th>
       <td mat-cell *matCellDef="let element">
         {{ element.dateLastLoggin | date: "dd/MM/yyyy HH:mm" }}
@@ -87,7 +87,7 @@
         mat-sort-header
         sortActionDescription="Sort by active"
       >
-        active
+        {{ "USER_TABLE.ACTIVE" | translate }}
       </th>
       <td mat-cell *matCellDef="let element">{{ element.active }}</td>
     </ng-container>
@@ -95,11 +95,16 @@
     <!-- option Column -->
     <ng-container matColumnDef="options">
       <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
-      <td mat-cell *matCellDef="let element">
+      <td
+        mat-cell
+        *matCellDef="let element"
+        [routerLink]="['/users/edit', element.id]"
+      >
         <mat-icon
           aria-hidden="false"
           aria-label="Example home icon"
           fontIcon="edit"
+          routerLink="edit"
         ></mat-icon>
         <mat-icon
           aria-hidden="false"

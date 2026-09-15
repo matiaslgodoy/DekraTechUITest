@@ -15,27 +15,4 @@ import { UserApiService } from '../../services/user-api.service';
 export class UserList {
   private _userService = inject(UserApiService);
   userList: UserModel[] = this._userService.userList() || [];
-
-  // displayedColumns: string[] = [
-  //   'username',
-  //   'name',
-  //   'age',
-  //   'dateCreated',
-  //   'dateLastLoggin',
-  //   'active',
-  //   'options',
-  // ];
-  // dataSource = new MatTableDataSource(this.userList);
-  // constructor(private _liveAnnouncer: LiveAnnouncer) {}
-  // @ViewChild(MatSort) sort!: MatSort;
-  // ngAfterViewInit() {
-  //   this.dataSource.sort = this.sort;
-  // }
-  // announceSortChange(sortState: Sort) {
-  //   if (sortState.direction) {
-  //     this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-  //   } else {
-  //     this._liveAnnouncer.announce('Sorting cleared');
-  //   }
-  // }
 }

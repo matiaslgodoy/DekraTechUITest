@@ -1,9 +1,12 @@
 import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { CdkAutofill } from '@angular/cdk/text-field';
 import { DatePipe } from '@angular/common';
 import { Component, effect, input, ViewChild } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSort, MatSortModule, Sort } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { UserModel } from '../../models/user.model';
 import { AgePipePipe } from '../../shared/pipes/age.pipe-pipe';
 
@@ -16,6 +19,9 @@ import { AgePipePipe } from '../../shared/pipes/age.pipe-pipe';
     DatePipe,
     AgePipePipe,
     MatIconModule,
+    TranslateModule,
+    CdkAutofill,
+    RouterLink,
   ],
   templateUrl: './user-table.component.html',
   styleUrls: ['./user-table.component.scss'],

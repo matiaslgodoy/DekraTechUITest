@@ -2,11 +2,20 @@
   "USER": {
     "USERNAME": "Usuario",
     "FIRST_NAME": "Nombre",
-    "SUR_NAME": "Apellidos",
+    "SURNAME": "Apellidos",
     "EMAIL": "Correo",
     "DATE_OF_BIRTH": "Fecha de Nacimiento",
     "PASSWORD": "Contraseña",
     "CONFIRM_PASSWORD": "Confirmar contraseña",
+    "ACTIVE": "Activo"
+  },
+  "USER_TABLE": {
+    "USERNAME": "Usuario",
+    "FULL_NAME": "Nombre completo",
+    "AGE": "Edad",
+    "EMAIL": "Correo",
+    "DATE_OF_CREATE": "Fecha de Creacion",
+    "DATE_LAST_LOGIN": "Fecha ultimo Login",
     "ACTIVE": "Activo"
   },
   "FORM": {
