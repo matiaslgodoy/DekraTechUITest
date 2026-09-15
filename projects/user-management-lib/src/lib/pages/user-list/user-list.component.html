@@ -1,1 +1,4 @@
-<app-user-table [userList]="userList"></app-user-table>
+<app-user-table
+  [userList]="userList"
+  (deleteUserById)="deleteUserById($event)"
+></app-user-table>

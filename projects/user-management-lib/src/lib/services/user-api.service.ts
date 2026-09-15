@@ -26,8 +26,12 @@ export class UserApiService {
   }
 
   getUserById(userId: string): UserModel | null {
-    const x = this.userList().find((u) => u.id === Number(userId)) || null;
-    console.log(x);
-    return x;
+    //Aqui deberia llamar al backend con un http get
+    return this.userList().find((u) => u.id === Number(userId)) || null;
+  }
+  deleteUserById(userId: number): void {
+    //aqui deberia llamar al back con un http delete
+    const filterUserList = this.userList().filter((u) => u.id !== userId);
+    this.userList.set(filterUserList);
   }
 }

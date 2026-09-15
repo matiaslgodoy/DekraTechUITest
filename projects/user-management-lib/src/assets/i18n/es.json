@@ -22,6 +22,12 @@
     "PERSONAL_DATA": "Datos personales",
     "SAVE": "Guardar"
   },
+  "USER_DELETE_DIALOG": {
+    "DIALOG_TITLE": "Eliminar usiario",
+    "DIALOG_MESSAGE": "¿Esta seguro de eliminar este usuario?",
+    "DIALOG_YES": "Si",
+    "DIALOG_NO": "No"
+  },
   "ERROR": {
     "REQUIRED": "Este campo es requerido",
     "MIN_LENGTH_6": "Mínimo de 6 caracteres",
