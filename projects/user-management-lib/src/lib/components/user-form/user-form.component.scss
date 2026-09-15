@@ -2,19 +2,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   width: 100%;
-  background-color: #f2f7f6; /* Color de fondo claro idéntico a la imagen */
   box-sizing: border-box;
   padding: 20px;
 }
 
 .form-container {
   width: 100%;
-  max-width: 750px; /* Ancho ajustado contenedor */
+  max-width: 750px;
 }
 
-/* Recuadro borderizado para "Datos personales" */
+
 .custom-fieldset {
   border: 1px solid #c9d5d3;
   border-radius: 12px;
@@ -32,7 +30,7 @@
   float: none;
 }
 
-/* Grid para organizar los campos responsivos */
+
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -43,12 +41,12 @@
   width: 100%;
 }
 
-/* El campo País toma ambos lados */
+
 .full-width {
   grid-column: span 2;
 }
 
-/* Adaptación responsive para pantallas móviles */
+
 @media (max-width: 600px) {
   .form-grid {
     grid-template-columns: 1fr;
@@ -63,7 +61,7 @@
   }
 }
 
-/* Personalización del borde redondeado y fondo blanco en los inputs de Angular Material */
+
 ::ng-deep {
   .mat-mdc-text-field-wrapper {
     background-color: #ffffff !important;

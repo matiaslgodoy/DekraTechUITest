@@ -10,7 +10,6 @@ import { UserApiService } from '../../services/user-api.service';
   standalone: true,
   imports: [UserTableComponent],
   templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserListComponent {
