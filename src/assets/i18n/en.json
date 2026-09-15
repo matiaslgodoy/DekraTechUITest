@@ -1,10 +1,18 @@
 {
+  "HOME": {
+    "WELCOME": "Welcome!",
+    "USERS_COUNT": "The number of users in the system is: ",
+    "USERS_TABLE_LBL": "You can view the user table using the following button: ",
+    "FOLLOW_BUTTON_CREATE": "You can create a user using the following button:"
+  },
   "NAVBAR": {
-    "TITLE": "User magnament",
+    "TITLE": "User Management"
+  },
+  "BUTTON": {
     "USERS_LIST": "User list",
     "NEW_USER": "New user"
   },
   "COMMON": {
-    "LANGUAGE": "Idioma"
+    "LANGUAGE": "Language"
   }
 }

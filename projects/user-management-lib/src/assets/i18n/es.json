@@ -4,7 +4,7 @@
     "FIRST_NAME": "Nombre",
     "SURNAME": "Apellidos",
     "EMAIL": "Correo",
-    "DATE_OF_BIRTH": "Fecha de Nacimiento",
+    "DATE_OF_BIRTH": "Fecha de nacimiento",
     "PASSWORD": "Contraseña",
     "CONFIRM_PASSWORD": "Confirmar contraseña",
     "ACTIVE": "Activo"
@@ -14,8 +14,8 @@
     "FULL_NAME": "Nombre completo",
     "AGE": "Edad",
     "EMAIL": "Correo",
-    "DATE_OF_CREATE": "Fecha de Creacion",
-    "DATE_LAST_LOGIN": "Ultimo Login",
+    "DATE_OF_CREATE": "Fecha de creación",
+    "DATE_LAST_LOGIN": "Último inicio de sesión",
     "ACTIVE": "Activo"
   },
   "FORM": {
@@ -23,18 +23,18 @@
     "SAVE": "Guardar"
   },
   "USER_DELETE_DIALOG": {
-    "DIALOG_TITLE": "Eliminar usiario",
-    "DIALOG_MESSAGE": "¿Esta seguro de eliminar este usuario?",
-    "DIALOG_YES": "Si",
+    "DIALOG_TITLE": "Eliminar usuario",
+    "DIALOG_MESSAGE": "¿Está seguro de eliminar este usuario?",
+    "DIALOG_YES": "Sí",
     "DIALOG_NO": "No"
   },
   "ERROR": {
-    "REQUIRED": "Este campo es requerido",
+    "REQUIRED": "Este campo es obligatorio",
     "MIN_LENGTH_6": "Mínimo de 6 caracteres",
     "MAX_DATE_TODAY": "La fecha ingresada no es válida",
-    "WHITE_SPACE": "El campo no puede ser vacio",
-    "NAME_PARRERN": "Nombre invalido",
-    "EMAIL_PARRERN": "Correo invalido",
+    "WHITE_SPACE": "El campo no puede estar vacío",
+    "NAME_PATTERN": "Nombre inválido",
+    "EMAIL_PATTERN": "Correo inválido",
     "NOT_EQUAL": "Los campos no son iguales"
   },
   "TOAST_NOTIFICATION": {

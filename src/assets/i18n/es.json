@@ -1,16 +1,16 @@
 {
   "HOME": {
-    "WELCOME": "Bienvenido!!",
+    "WELCOME": "¡Bienvenido!",
     "USERS_COUNT": "La cantidad de usuarios en el sistema es: ",
-    "USERS_TABLE_LBL": "Puedes ver la tabla de usuarios en el siguiente boton: ",
-    "FOLLOW_BUTTON_CREATE": "Puedes crear un usuario con el siguiente boton:"
+    "USERS_TABLE_LBL": "Puedes ver la tabla de usuarios en el siguiente botón: ",
+    "FOLLOW_BUTTON_CREATE": "Puedes crear un usuario con el siguiente botón:"
   },
   "NAVBAR": {
     "TITLE": "Gestión de Usuarios"
   },
   "BUTTON": {
-    "USERS_LIST": "Lista Usuarios",
-    "NEW_USER": "Nuevo Usuario"
+    "USERS_LIST": "Lista de usuarios",
+    "NEW_USER": "Nuevo usuario"
   },
   "COMMON": {
     "LANGUAGE": "Idioma"

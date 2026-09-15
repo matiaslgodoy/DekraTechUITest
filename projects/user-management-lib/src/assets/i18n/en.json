@@ -1,0 +1,45 @@
+{
+  "USER": {
+    "USERNAME": "Username",
+    "FIRST_NAME": "First name",
+    "SURNAME": "Last name",
+    "EMAIL": "Email",
+    "DATE_OF_BIRTH": "Date of birth",
+    "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Confirm password",
+    "ACTIVE": "Active"
+  },
+  "USER_TABLE": {
+    "USERNAME": "Username",
+    "FULL_NAME": "Full name",
+    "AGE": "Age",
+    "EMAIL": "Email",
+    "DATE_OF_CREATE": "Creation date",
+    "DATE_LAST_LOGIN": "Last login",
+    "ACTIVE": "Active"
+  },
+  "FORM": {
+    "PERSONAL_DATA": "Personal details",
+    "SAVE": "Save"
+  },
+  "USER_DELETE_DIALOG": {
+    "DIALOG_TITLE": "Delete user",
+    "DIALOG_MESSAGE": "Are you sure you want to delete this user?",
+    "DIALOG_YES": "Yes",
+    "DIALOG_NO": "No"
+  },
+  "ERROR": {
+    "REQUIRED": "This field is required",
+    "MIN_LENGTH_6": "Minimum 6 characters required",
+    "MAX_DATE_TODAY": "The entered date is invalid",
+    "WHITE_SPACE": "Field cannot be empty",
+    "NAME_PATTERN": "Invalid name",
+    "EMAIL_PATTERN": "Invalid email",
+    "NOT_EQUAL": "Fields do not match"
+  },
+  "TOAST_NOTIFICATION": {
+    "USER_CREATED": "User created",
+    "USER_EDITED": "User updated",
+    "USER_DELETED": "User deleted"
+  }
+}
