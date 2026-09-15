@@ -1,4 +1,4 @@
-import { Component, effect, inject, input } from '@angular/core';
+import { Component, effect, inject, input, output } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -44,6 +44,7 @@ import { FormUtils } from '../../shared/utils/form-utils';
 })
 export class UserForm {
   user = input<UserModel>();
+  userSaved = output<UserModel>();
   private _fb = inject(FormBuilder);
   private _userService = inject(UserApiService);
   formUtils = FormUtils;
@@ -99,7 +100,7 @@ export class UserForm {
     }
 
     this._userService.addUser(currentUser!);
-
-    //this.userForm.reset();
+    this.userSaved.emit(currentUser!);
+    this.userForm.reset();
   }
 }

@@ -1,1 +1,4 @@
-<app-user-form [user]="userToEdit()!"></app-user-form>
+<app-user-form
+  [user]="userToEdit()!"
+  (userSaved)="userSaved($event)"
+></app-user-form>

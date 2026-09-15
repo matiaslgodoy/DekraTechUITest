@@ -83,10 +83,4 @@ export class UserTableComponent {
       }
     });
   }
-
-  // private deleteUser(id: number): void {
-  //   // Filtra el usuario del array/Signal
-  //   //this.userList()!.update(this.userList() => this.userList()!.filter(user => user.id !== id));
-  //   console.log('ELIMINAR!!');
-  // }
 }
