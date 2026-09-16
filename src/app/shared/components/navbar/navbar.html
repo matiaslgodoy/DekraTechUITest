@@ -11,7 +11,6 @@
   >
   <span class="spacer"></span>
 
-  <!-- Menú de navegación principal -->
   <nav class="nav-links desktop-menu">
     <a mat-button routerLink="/users">
       <mat-icon>group</mat-icon>
@@ -24,7 +23,6 @@
     </a>
   </nav>
 
-  <!-- Menú desplegable Móvil -->
   <mat-menu #mobileNavMenu="matMenu" class="mobile-menu">
     <a mat-menu-item routerLink="/users">
       <mat-icon>group</mat-icon>
@@ -36,7 +34,6 @@
     </a>
   </mat-menu>
 
-  <!-- Selector de Idioma (Dropdown) -->
   <button mat-button [matMenuTriggerFor]="languageMenu">
     <mat-icon>language</mat-icon>
     <span>{{ currentLang() }}</span>

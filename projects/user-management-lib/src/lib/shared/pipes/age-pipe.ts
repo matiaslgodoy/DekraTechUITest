@@ -4,7 +4,7 @@ import { Pipe, type PipeTransform } from '@angular/core';
   name: 'age',
   standalone: true,
 })
-export class AgePipePipe implements PipeTransform {
+export class AgePipe implements PipeTransform {
   transform(value: Date | string | null | undefined): number | string {
     if (!value) return '';
 
@@ -14,7 +14,6 @@ export class AgePipePipe implements PipeTransform {
     let age = today.getFullYear() - birthDate.getFullYear();
     const monthDiff = today.getMonth() - birthDate.getMonth();
 
-    // Ajustar si aún no ha cumplido años en el año actual
     if (
       monthDiff < 0 ||
       (monthDiff === 0 && today.getDate() < birthDate.getDate())

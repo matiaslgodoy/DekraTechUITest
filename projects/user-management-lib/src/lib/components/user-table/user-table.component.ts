@@ -15,7 +15,7 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { UserModel } from '../../models/user.model';
-import { AgePipePipe } from '../../shared/pipes/age.pipe-pipe';
+import { AgePipe } from '../../shared/pipes/age-pipe';
 import { UserDeleteDialogComponent } from '../user-delete-dialog/user-delete-dialog.component';
 
 @Component({
@@ -25,7 +25,7 @@ import { UserDeleteDialogComponent } from '../user-delete-dialog/user-delete-dia
     MatTableModule,
     MatSortModule,
     DatePipe,
-    AgePipePipe,
+    AgePipe,
     MatIconModule,
     TranslateModule,
     RouterLink,

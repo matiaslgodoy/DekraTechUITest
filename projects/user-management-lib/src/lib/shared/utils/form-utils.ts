@@ -1,4 +1,9 @@
-import { AbstractControl, FormGroup, ValidationErrors } from '@angular/forms';
+import {
+  AbstractControl,
+  FormGroup,
+  ValidationErrors,
+  ValidatorFn,
+} from '@angular/forms';
 
 export class FormUtils {
   static namePattern = '([a-zA-Z]+) ([a-zA-Z]+)';
@@ -25,7 +30,7 @@ export class FormUtils {
 
         case 'pattern':
           if (errors['pattern'].requiredPattern === FormUtils.emailPattern) {
-            return 'ERROR.EMAIL_PARRERN';
+            return 'ERROR.EMAIL_PATTERN';
           }
 
           return 'Error de patrón contra expresión regular';
@@ -80,10 +85,7 @@ export class FormUtils {
     return null;
   }
 
-  static isFieldOneEqualsFieldTwo(
-    field1: string,
-    field2: string,
-  ): ValidationErrors | null {
+  static isFieldOneEqualsFieldTwo(field1: string, field2: string): ValidatorFn {
     return (formGroup: AbstractControl): ValidationErrors | null => {
       const field1Control = formGroup.get(field1);
       const field2Control = formGroup.get(field2);
