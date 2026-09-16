@@ -1,27 +1,47 @@
-# DekraTechUITest
+# Prueba Técnica Angular - User Management System
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+Este proyecto es una prueba técnica desarrollada en **Angular 17** con diseño **responsive** utilizando **Angular Material Design**. La aplicación implementa un sistema de gestión de usuarios mediante un monorepo modularizado y orientado a buenas prácticas de desarrollo web.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🏛️ Arquitectura y Estructura
 
-## Code scaffolding
+El repositorio está organizado bajo un enfoque **Monorepo (App + Lib)** para desacoplar la lógica de negocio y fomentar la reutilización de código:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Aplicación Principal (`dekraTechUITest`)**: Gestiona la navegación, internacionalización (i18n) y el enrutamiento principal con consumo de servicios compartidos.
+- **Librería de Dominio (`user-management-lib`)**: Proyecto independiente ubicado en `projects/user-management-lib` que contiene toda la lógica relacionada con la gestión de usuarios (componentes, servicios, modelos, utilidades y pipes).
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🚀 Características Principales
 
-## Running unit tests
+- **Lazy Loading**: Optimización de carga por rutas mediante `loadChildren` y `loadComponent` para modularizar la aplicación.
+- **Formularios Reactivos**: Manejo de entradas con validaciones nativas y personalizadas.
+- **Internacionalización (i18n)**: Configuración centralizada de `TranslateService` para la adaptación multiidioma.
+- **Angular Material**: Componentes visuales responsivos como `MatTable`, `MatDialog`, `MatFormField`, `MatSelect`, entre otros.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+## 💡 Desafíos Personales e Implementaciones
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Como valor agregado al desarrollo de la prueba técnica, se integraron soluciones a medida:
 
-## Further help
+- **Pipes Personalizados**: Implementación de `AgePipe` para el cálculo dinámico de edad en base a la fecha de nacimiento.
+- **Validadores Personalizados**:
+  - `noWhiteSpace`: Validación de campos vacíos o cadenas de solo espacios.
+  - `maxDateToday`: Validación para restringir fechas futuras.
+  - `isFieldOneEqualsFieldTwo`: Validador de coincidencia de campos (e.g., confirmación de contraseñas).
+- **Pruebas Unitarias aisladas**: Cobertura de tests en componentes principales (`UserTableComponent`, `UserFormComponent`), servicios (`UserApiService`), pipes y clases utilitarias (`FormUtils`).
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+---
+
+## 🧪 Ejecución de Tests Unitarios
+
+Las suites de pruebas están separadas por proyecto gracias a sus configuraciones independientes de `tsconfig.spec.json`.
+
+### **1. Testear la aplicación principal**
+
+```bash
+ng test
+ng test user-management-lib
+```
