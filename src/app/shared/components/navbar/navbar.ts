@@ -29,16 +29,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 })
 export class Navbar {
   private translate = inject(TranslateService);
-
-  // Idioma activo expuesto como Signal para la UI
   currentLang = signal<string>('es');
 
   constructor() {
-    // Configuración de idiomas soportados
     this.translate.addLangs(['es', 'en']);
     this.translate.setDefaultLang('es');
 
-    // Mantiene sincronizado el estado inicial
     const activeLang = this.translate.currentLang || 'es';
     this.translate.use(activeLang);
     this.currentLang.set(activeLang);
